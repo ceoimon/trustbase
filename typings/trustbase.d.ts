@@ -48,6 +48,7 @@ declare interface QueriedMessages {
 }
 
 declare interface GetBroadcastMessagesOption {
+  filter?: any
   fromBlock?: web3.BlockType
   toBlock?: web3.BlockType
 }
