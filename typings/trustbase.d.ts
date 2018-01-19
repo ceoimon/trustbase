@@ -65,7 +65,9 @@ declare interface QueriedBroadcastMessages {
 }
 
 declare interface GetBindEventsOption {
-  filter?: any[]
+  filter?: {
+    [indexedParam: string]: any
+  }
   fromBlock?: web3.BlockType
   toBlock?: web3.BlockType
 }
