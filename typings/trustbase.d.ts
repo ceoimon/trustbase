@@ -64,6 +64,12 @@ declare interface QueriedBroadcastMessages {
   broadcastMessages: Array<BroadcastMessage>
 }
 
+declare interface GetBindEventsOption {
+  filter?: any[]
+  fromBlock?: web3.BlockType
+  toBlock?: web3.BlockType
+}
+
 declare interface BindEvent {
   userAddress: string,
   signedBoundSocials: string,
@@ -117,7 +123,7 @@ declare module trustbase {
 
     constructor(options?: ContractOptions)
     publish(signedMessage: string, userAddress: string, options?: ContractMethodOptions): web3.PromiEvent<web3.TransactionReceipt>
-    getBroadcastMessages(options: GetBroadcastMessagesOption): Promise<QueriedBroadcastMessages>
+    getBroadcastMessages(options?: GetBroadcastMessagesOption): Promise<QueriedBroadcastMessages>
   }
 
   class BoundSocials {
@@ -126,7 +132,7 @@ declare module trustbase {
 
     constructor(options?: ContractOptions)
     bind(userAddress: string, signedBoundSocials: string,  options?: ContractMethodOptions): web3.PromiEvent<web3.TransactionReceipt>
-    getBindEvents(options: GetBroadcastMessagesOption): Promise<QueriedBindEvents>
+    getBindEvents(options?: GetBindEventsOption): Promise<QueriedBindEvents>
   }
 
   class TrustbaseError extends Error {
